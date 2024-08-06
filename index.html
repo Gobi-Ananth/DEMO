@@ -1,81 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun and Crazy Page</title>
-    <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            color: #333;
-            text-align: center;
-            overflow: hidden;
-        }
-        h1 {
-            color: #fff;
-            font-size: 3em;
-            margin-top: 50px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .container {
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            margin: 20px auto;
-            max-width: 800px;
-            animation: bounce 2s infinite;
-        }
-        .container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-        .container video, .container audio {
-            margin: 20px 0;
-            border-radius: 10px;
-        }
-        .container p {
-            font-size: 1.2em;
-            line-height: 1.5;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-30px);
-            }
-            60% {
-                transform: translateY(-15px);
-            }
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Teachable Machine</title>
+	<style>
+		/* CSS styles */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		.header {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+		.models {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.model {
+			margin: 20px;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			width: calc(33.33% - 20px);
+		}
+		.model:hover {
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+	</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Wacky World of Fun!</h1>
-        <p>Get ready for some laughs and a wild ride!</p>
-
-        <video controls>
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <audio controls>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-
-        <p>Enjoy this funny cat image:</p>
-        <img src="https://cataas.com/cat/cute" alt="Funny Cat">
-
-        <p>Here's a quirky joke for you:</p>
-        <p><strong>Why don't skeletons fight each other?</strong> They don't have the guts!</p>
-    </div>
+	<div class="container">
+		<div class="header">
+			<h1>Teachable Machine</h1>
+		</div>
+		<div class="models">
+			<div class="model">
+				<h2>Image</h2>
+				<p>Train models to recognize images.</p>
+			</div>
+			<div class="model">
+				<h2>Sound</h2>
+				<p>Train models to recognize sounds.</p>
+			</div>
+			<div class="model">
+				<h2>Pose</h2>
+				<p>Train models to recognize body poses.</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		// JavaScript code
+		console.log("Teachable Machine");
+	</script>
 </body>
 </html>
