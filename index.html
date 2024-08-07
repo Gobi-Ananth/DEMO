@@ -3,37 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funny Webpage</title>
+    <title>Scroll Height Meter</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .meter {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            z-index: 1000;
+        }
+        .content {
+            height: 6000px;
+        }
+        .section {
+            margin: 0 auto;
+            width: 100%;
+            padding: 100px 0;
             text-align: center;
-            background-color: #f0f8ff;
-            color: #333;
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
         }
-        h1 {
-            font-size: 3em;
-            margin-top: 50px;
+        .section:nth-child(odd) {
+            background: linear-gradient(to bottom, #34e89e, #0f3443);
         }
-        img {
-            margin: 20px auto;
-            width: 300px;
-            height: auto;
-            border: 5px solid #333;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .funny-text {
-            font-size: 1.5em;
-            margin: 20px;
-            color: #ff4500;
+        .section:nth-child(even) {
+            background: linear-gradient(to bottom, #fc4a1a, #f7b733);
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Fun Zone!</h1>
-    <img src="https://drive.google.com/uc?export=view&id=1WfhsacyYvzsDVtuPSiewIz3YS1AYTLEf" alt="Funny Image">
-    <p class="funny-text">When you realize it's Monday again...</p>
-    <p class="funny-text">But hey, at least you found this awesome webpage!</p>
+
+<div class="meter" id="meter">0 meters - Ground Level</div>
+<div class="content">
+    <div class="section" id="section-0">0-999 meters: Ground Level</div>
+    <div class="section" id="section-1000">1000-1999 meters: Low Atmosphere</div>
+    <div class="section" id="section-2000">2000-2999 meters: Mid Atmosphere</div>
+    <div class="section" id="section-3000">3000-3999 meters: High Atmosphere</div>
+    <div class="section" id="section-4000">4000-4999 meters: Outer Space</div>
+    <div class="section" id="section-5000">5000-5999 meters: Deep Space</div>
+</div>
+
+<script>
+    const sections = [
+        { id: 'section-0', label: 'Ground Level' },
+        { id: 'section-1000', label: 'Low Atmosphere' },
+        { id: 'section-2000', label: 'Mid Atmosphere' },
+        { id: 'section-3000', label: 'High Atmosphere' },
+        { id: 'section-4000', label: 'Outer Space' },
+        { id: 'section-5000', label: 'Deep Space' }
+    ];
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const meters = Math.floor(scrollTop / 10); // 10 pixels per meter
+        let currentSection = 'Ground Level';
+
+        sections.forEach(section => {
+            const sectionElement = document.getElementById(section.id);
+            const rect = sectionElement.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                currentSection = section.label;
+            }
+        });
+
+        document.getElementById('meter').innerText = `${meters} meters - ${currentSection}`;
+    });
+</script>
+
 </body>
 </html>
